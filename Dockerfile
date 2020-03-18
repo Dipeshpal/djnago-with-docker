@@ -19,11 +19,10 @@ ENV DOCKYARD_SRVHOME=/srv
 ENV DOCKYARD_SRVPROJ=/srv/mysite
 
 # Update the default application repository sources list
-RUN apt-get update && apt-get -y upgrade
+RUN apt-get update
 RUN apt-get install -y python3
 RUN apt-get install -y python3-pip
 RUN pip3 install --upgrade pip
-
 
 
 # Create application subdirectories
@@ -41,11 +40,14 @@ RUN pip3 install -r $DOCKYARD_SRVPROJ/requirements.txt
 # torch install
 # RUN pip3 install torch==1.2.0+cpu torchvision==0.4.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
+
 # Port to expose
-EXPOSE 9002
+EXPOSE 8000
 EXPOSE 8002
+
 
 # Copy entrypoint script into the image
 WORKDIR $DOCKYARD_SRVPROJ
 COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
+
