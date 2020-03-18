@@ -38,10 +38,17 @@ After few minutes-
 
 8. Now we will create container with above image: `sudo docker container run --publish 8000:8002 --detach --name <container_name> <image_ID>`
 
-![08](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/08.PNG)
+![11](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/11.PNG)
 
 You will have container id as output.
 
 9. Now check your new container, you will find something new: `sudo docker ps`
 
+	You will find contatiner up and running, just check ports number field.   
+
  10. Now go to browser of VM / Main Machine / Host Machine and hit this URL in address bar: "localhost:8000", or "0.0.0.0:8000" if all host allowed in settings.py in djnago app.
+ 
+ ![51](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/Screenshot%20%2851%29.png)
+
+![52](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/Screenshot%20%2852%29.png)
+
