@@ -37,7 +37,7 @@ After few minutes-
 ![07](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/07.PNG)
 
 8. Now we will create container with above image: `sudo docker container run --publish 8000:8002 --detach --name <container_name> <image_ID>`
-or `sudo docker run -itd - 9010:8010 <image_name>`
+or `sudo docker run -itd -p 9010:8010 <image_name>` or `sudo docker run -itd -p 9010:8010  -p 9011:8011 <image_name>`
 (External_Port:Internal_Port)
 
 ![11](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/11.PNG)
@@ -79,7 +79,12 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 mynginx             latest              aaaed50d250a        25 seconds ago      107MB
 nginx               latest              568c4670fa80        2 weeks ago         109MB
 ```
-**4. Create tar from Images (already commited)** 
+
+**4. Create Image from Conatiner-**
+
+	`docker commit <running_container_id> <new_image_name>`
+
+**5. Create tar from Images (already commited)** 
 If you would rather deal with images that you have already committed, you can use the load and save commands:
 
 ```
@@ -95,7 +100,7 @@ total 218756
 ```
 This will create a tar.
  
-**5. Load Image from tar.**
+**6. Load Image from tar.**
 
 Run the below command to load Docker image into your system:
 
