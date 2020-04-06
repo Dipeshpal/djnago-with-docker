@@ -125,6 +125,3 @@ $
 ```
 
 Now run this image to start container.
-
-
-
