@@ -5,9 +5,10 @@
 ### First Download all this sample code from Github: [https://github.com/Dipeshpal/djnago-with-docker](https://github.com/Dipeshpal/djnago-with-docker), it will help you to understand all the code and files releated to this article.
 
 1. Put this [repository](https://github.com/Dipeshpal/djnago-with-docker/tree/master/) somewhere in VM / Main Machine / Host Machine. And open terminal in same folder.
-![01](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/01.PNG)
 
-2. Change dir to "djnago-with-docker", you must have "docker-entrypoint.sh", "Dockerfile" files and "mysite" folder. Type `ls` to check.
+	![01](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/01.PNG)
+
+3. Change dir to "djnago-with-docker", you must have "docker-entrypoint.sh", "Dockerfile" files and "mysite" folder. Type `ls` to check.
 
 	**Dockerfile**: This is the file which have instruction to create docker image. We will talk more about this file later in this document.
 	
@@ -17,35 +18,35 @@
 	
 	***Note***: In settings.py file of django app, `ALLOWED_HOST=['*']`
 	
-	So, we have all these files- 
+	So, we have all these files-
 	![02](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/02.PNG)
 
 4. Make the file "docker-entrypoint.sh" executable and change permission by type this command in terminal: `chmod u+x docker-entrypoint.sh`
 
-![03](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/03.PNG)
+	![03](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/03.PNG)
 
 4. Now check your existing images (Optional): `sudo docker images`
 
 5. Now check your existing containers (Optional): `sudo docker ps`
 
-![04](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/04.PNG)
+	![04](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/04.PNG)
 
-Here you can see we don't have any image or container.
+	Here you can see we don't have any image or container.
 
 6. Now create docker image first by using "Dockerfile": `sudo docker build -t <image_name> -f Dockerfile .`
 
-![05](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/05.PNG)
+	![05](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/05.PNG)
 
-It may take few minutes.
+	It may take few minutes.
 
-After few minutes-
+	After few minutes-
 
-![06](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/06.PNG)
+	![06](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/06.PNG)
 
 
 7. Once image is created successfully, then check image name: `sudo docker images`
 
-![07](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/07.PNG)
+	![07](https://raw.githubusercontent.com/Dipeshpal/djnago-with-docker/master/raw/07.PNG)
 
 8. Now we will create container with above image: 
 `sudo docker container run --publish 8000:8002 --detach --name <container_name> <image_ID>`
